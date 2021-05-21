@@ -42,6 +42,7 @@ JaCoCo
 JavaScript
 Jira
 Kaewkasi
+Keyv
 kubernetes
 Knex
 Leasot
