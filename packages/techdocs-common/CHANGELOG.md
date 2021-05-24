@@ -1,5 +1,31 @@
 # @backstage/techdocs-common
 
+## 0.6.2
+
+### Patch Changes
+
+- 65e6c4541: Remove circular dependencies
+- Updated dependencies [f7f7783a3]
+- Updated dependencies [c7dad9218]
+- Updated dependencies [65e6c4541]
+- Updated dependencies [68fdbf014]
+- Updated dependencies [5001de908]
+  - @backstage/catalog-model@0.7.10
+  - @backstage/backend-common@0.8.1
+  - @backstage/integration@0.5.3
+
+## 0.6.1
+
+### Patch Changes
+
+- e04f1ccfb: Fixed a bug that prevented loading static assets from GCS, S3, Azure, and OpenStackSwift whose keys contain spaces or other special characters.
+- Updated dependencies [22fd8ce2a]
+- Updated dependencies [10c008a3a]
+- Updated dependencies [f9fb4a205]
+- Updated dependencies [16be1d093]
+  - @backstage/backend-common@0.8.0
+  - @backstage/catalog-model@0.7.9
+
 ## 0.6.0
 
 ### Minor Changes

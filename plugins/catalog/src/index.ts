@@ -18,6 +18,7 @@ export { AboutCard } from './components/AboutCard';
 export { CatalogResultListItem } from './components/CatalogResultListItem';
 export { EntityLayout } from './components/EntityLayout';
 export { EntityPageLayout } from './components/EntityPageLayout';
+export { CatalogTable } from './components/CatalogTable';
 export * from './components/EntitySwitch';
 export { Router } from './components/Router';
 export {
@@ -26,9 +27,13 @@ export {
   catalogPlugin,
   catalogPlugin as plugin,
   EntityAboutCard,
+  EntityDependsOnComponentsCard,
+  EntityDependsOnResourcesCard,
   EntityHasComponentsCard,
+  EntityHasResourcesCard,
   EntityHasSubcomponentsCard,
   EntityHasSystemsCard,
   EntityLinksCard,
   EntitySystemDiagramCard,
 } from './plugin';
+export * from './components/EntityOrphanWarning';

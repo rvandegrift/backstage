@@ -1,5 +1,22 @@
 # @backstage/catalog-model
 
+## 0.7.10
+
+### Patch Changes
+
+- f7f7783a3: Add Owner field in template card and new data distribution
+  Add spec.owner as optional field into TemplateV1Alpha and TemplateV1Beta Schema
+  Add relations ownedBy and ownerOf into Template entity
+  Template documentation updated
+- 68fdbf014: Add the `status` field to the Entity envelope
+
+## 0.7.9
+
+### Patch Changes
+
+- 10c008a3a: Renamed parameters to input in template schema
+- 16be1d093: Improve error messages when schema validation fails
+
 ## 0.7.8
 
 ### Patch Changes

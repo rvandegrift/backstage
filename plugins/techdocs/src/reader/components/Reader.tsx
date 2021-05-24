@@ -23,7 +23,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAsync } from 'react-use';
 import { techdocsStorageApiRef } from '../../api';
-import transformer, {
+import {
   addBaseUrl,
   addGitFeedbackLink,
   addLinkClickListener,
@@ -33,6 +33,7 @@ import transformer, {
   rewriteDocLinks,
   sanitizeDOM,
   simplifyMkdocsFooter,
+  transform as transformer,
 } from '../transformers';
 import { TechDocsNotFound } from './TechDocsNotFound';
 import TechDocsProgressBar from './TechDocsProgressBar';
@@ -89,12 +90,17 @@ export const Reader = ({ entityId, onReady }: Props) => {
   useEffect(() => {
     const updateSidebarPosition = () => {
       if (!!shadowDomRef.current && !!sidebars) {
+        const mdTabs = shadowDomRef.current!.querySelector(
+          '.md-container > .md-tabs',
+        );
         sidebars!.forEach(sidebar => {
           const newTop = Math.max(
             shadowDomRef.current!.getBoundingClientRect().top,
             0,
           );
-          sidebar.style.top = `${newTop}px`;
+          sidebar.style.top = mdTabs
+            ? `${newTop + mdTabs.getBoundingClientRect().height}px`
+            : `${newTop}px`;
         });
       }
     };
@@ -177,21 +183,24 @@ export const Reader = ({ entityId, onReady }: Props) => {
           border-bottom: 1px solid ${theme.palette.text.primary};
         }
         .md-typeset table:not([class]) th { font-weight: bold; }
+        .md-typeset .admonition, .md-typeset details {
+          font-size: 1rem;
+        }
         @media screen and (max-width: 76.1875em) {
-          .md-nav { 
-            background-color: ${theme.palette.background.default}; 
+          .md-nav {
+            background-color: ${theme.palette.background.default};
             transition: none !important
           }
           .md-sidebar--secondary { display: none; }
           .md-sidebar--primary { left: 72px; width: 10rem }
           .md-content { margin-left: 10rem; max-width: calc(100% - 10rem); }
           .md-content__inner { font-size: 0.9rem }
-          .md-footer { 
-            position: static; 
-            margin-left: 10rem; 
-            width: calc(100% - 10rem); 
+          .md-footer {
+            position: static;
+            margin-left: 10rem;
+            width: calc(100% - 10rem);
           }
-          .md-nav--primary .md-nav__title {  
+          .md-nav--primary .md-nav__title {
             white-space: normal;
             height: auto;
             line-height: 1rem;
@@ -318,8 +327,11 @@ export const Reader = ({ entityId, onReady }: Props) => {
           // set sidebar height so they don't initially render in wrong position
           const docTopPosition = (dom as HTMLElement).getBoundingClientRect()
             .top;
+          const mdTabs = dom.querySelector('.md-container > .md-tabs');
           sideDivs!.forEach(sidebar => {
-            sidebar.style.top = `${docTopPosition}px`;
+            sidebar.style.top = mdTabs
+              ? `${docTopPosition + mdTabs.getBoundingClientRect().height}px`
+              : `${docTopPosition}px`;
           });
         },
       }),
