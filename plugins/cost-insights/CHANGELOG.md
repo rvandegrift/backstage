@@ -1,5 +1,30 @@
 # @backstage/plugin-cost-insights
 
+## 0.10.0
+
+### Minor Changes
+
+- 7cbfcae48: support jsx in alert titles
+
+### Patch Changes
+
+- 5914a76d5: Added example client
+- Updated dependencies [65e6c4541]
+- Updated dependencies [5da6a561d]
+  - @backstage/core@0.7.10
+
+## 0.9.1
+
+### Patch Changes
+
+- 062bbf90f: chore: bump `@testing-library/user-event` from 12.8.3 to 13.1.8
+- 675a569a9: chore: bump `react-use` dependency in all packages
+- Updated dependencies [062bbf90f]
+- Updated dependencies [889d89b6e]
+- Updated dependencies [3f988cb63]
+- Updated dependencies [675a569a9]
+  - @backstage/core@0.7.9
+
 ## 0.9.0
 
 ### Minor Changes
