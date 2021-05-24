@@ -1,5 +1,12 @@
 # example-backend
 
+## 0.2.30
+
+### Patch Changes
+
+- Updated dependencies [0fd4ea443]
+  - @backstage/plugin-catalog-backend@0.10.0
+
 ## 0.2.28
 
 ### Patch Changes
